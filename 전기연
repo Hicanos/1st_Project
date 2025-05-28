@@ -1,4 +1,25 @@
-#아 이걸로 하는 거군요
-이렇게구나
-@ 이예에에에에
-console.WritrLine("유후");
+        Time.timeScale = 1.0f;
+		
+		if (time>=0f)
+        {
+            time -= Time.deltaTime;
+            timeTxt.text = time.ToString("N2");
+        }
+        else
+        {
+            time = 0f;
+            
+            FailBoard.SetActive(true);
+            PlayBoard.SetActive(false);
+            Time.timeScale = 0.0f;
+            timeTxt.text = time.ToString("N2");
+        }
+		
+		
+		
+                StartCoroutine(this.LoadingEnd());
+				
+				    IEnumerator LoadingEnd()
+					{
+						yield return new WaitForSeconds(1.0f);            
+					}
